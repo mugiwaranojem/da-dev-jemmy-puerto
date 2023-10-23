@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TodoList extends Model
 {
-    use HasFactory;
+    use SoftDeletes, HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -15,9 +16,9 @@ class TodoList extends Model
      * @var array
      */
     protected $fillable = [
-        'store',
-        'orders',
-        'customer_instruction',
+        'title',
+        'description',
+        'is_complete',
         'amount'
     ];
 }

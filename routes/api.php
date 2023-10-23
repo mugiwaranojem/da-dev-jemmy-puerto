@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TodoListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +14,9 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::get('/todo-list', function (Request $request) {
-    dd('todo');
+Route::controller(TodoListController::class)->group(function () {
+    Route::get('/todo-lists', 'all');
+    Route::post('/todo-lists', 'store');
+    Route::patch('/todo-lists/{id}', 'update');
+    Route::delete('/todo-lists/{id}', 'delete');
 });

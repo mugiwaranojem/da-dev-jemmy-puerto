@@ -13,10 +13,10 @@ class AddTodoListTable extends Migration
      */
     public function up()
     {
-        Schema::create('todo_list', function (Blueprint $table) {
+        Schema::create('todo_lists', function (Blueprint $table) {
             $table->id();
             $table->string('title', 255)->nullable();
-            $table->integer('description');
+            $table->text('description');
             $table->boolean('is_complete')->nullable();
             $table->timestamps();
             $table->softDeletes($column = 'deleted_at');
@@ -30,6 +30,6 @@ class AddTodoListTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('todo_list');
+        Schema::dropIfExists('todo_lists');
     }
 }
