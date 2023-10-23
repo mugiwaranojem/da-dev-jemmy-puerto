@@ -10,13 +10,7 @@
     <body>
         <div id="app">
             <main class="py-4">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            @yield('content')
-                        </div>
-                    </div>              
-                </div>
+                @yield('content')
             </main>
         </div>
         <script defer type="text/javascript" src="{{ asset('js/app.js') }}"></script>
